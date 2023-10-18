@@ -24,7 +24,7 @@ public class FindResourceUseCaseImpl implements FindResourceUseCase {
     public Mono<ResourceEntity> executeAfterRepositoryMethod(ResourceEntity resource) {
         LOGGER.info("securityService.getAuthentication().isPresent(): {}", securityService.getAuthentication().isPresent());
         return resourceRepository.count()
-                .flatMap(res -> resourceReactorRepositoryAdapter.findByResourceId(resource.getResourceId())).then(Mono.just(resource));
+                .flatMap(res -> resourceReactorRepositoryAdapter.findByResourceId(resource.getResourceId()));
     }
 
     public Mono<ResourceEntity> execute(ResourceEntity resource) {
