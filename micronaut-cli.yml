@@ -1,0 +1,6 @@
+applicationType: default
+defaultPackage: com.authentication
+testFramework: spock
+sourceLanguage: java
+buildTool: maven
+features: [app-name, data, data-hibernate-reactive, groovy-maven-plus-plugin, http-client, http-client-test, java, java-application, logback, maven, maven-enforcer-plugin, micronaut-aot, netty-server, openapi, oracle, readme, security-annotations, security-jwt, security-oauth2, serialization-jackson, shade, spock, swagger-ui, test-resources, yaml, yaml-build]

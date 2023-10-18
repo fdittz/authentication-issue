@@ -1,0 +1,39 @@
+micronaut:
+  application:
+    name: issue
+  router:
+    static-resources:
+      swagger:
+        paths: classpath:META-INF/swagger
+        mapping: /swagger/**
+      swagger-ui:
+        paths: classpath:META-INF/swagger/views/swagger-ui
+        mapping: /swagger-ui/**
+  security:
+    token:
+      jwt:
+        signatures:
+          jwks:
+            auth0:
+              url: https://dev-d37dgvcoz8lhicub.us.auth0.com/.well-known/jwks.json
+    intercept-url-map:
+      - pattern: /api/**
+        access:
+          - isAuthenticated()
+
+
+jpa:
+  default:
+    entity-scan:
+      packages:
+        - com.authentication.infrastructure.dataprovider.entity
+    properties:
+      hibernate:
+        show-sql: true
+        hbm2ddl:
+          auto: update
+        connection:
+          db-type: mysql
+    reactive: true
+
+
